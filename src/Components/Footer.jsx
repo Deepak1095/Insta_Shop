@@ -5,25 +5,27 @@ const Footer = () => {
     <>
     
    <Flex gap={3}>
-     <div>
+    <div style={{display:"flex",flexDirection:"row",backgroundColor:"#545871",color:"white"}}>
+     <div style={{display:"flex"}}>
     <Box>
    <h2>Get Email Deals & Earn Cashback</h2> 
    </Box>
    <Box>
-   <Input placeholder='Enter email address'/>
+   <Input placeholder='Enter email address' backgroundColor="white"/>
   </Box>
    <Spacer />
    <Box>
-   <Button>Sign Up</Button>
+   <Button backgroundColor="##f0f1f7" color="black">Sign Up</Button>
    </Box>
   </div>
-   <div>
+   <div style={{display:"flex"}}>
    <Box>
     <h2>Link To This Page & Tell All Your Friends!</h2>
    </Box>
    <Box>
     Copy Link
    </Box>
+   </div>
    </div>
    </Flex>
    <Flex>

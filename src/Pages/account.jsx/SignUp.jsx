@@ -46,7 +46,7 @@ export  const SignUp = () => {
   return (
     <GridItem
       w="100%"
-      paddingX="40px"
+      paddingX="20px"
       paddingY="40px"
       border="1px solid #dadcdf"
     >

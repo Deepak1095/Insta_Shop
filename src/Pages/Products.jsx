@@ -9,6 +9,7 @@ export function LendingProduct ({data}) {
       spacing={7}
       paddingY="20px"
       paddingX="5%"
+      marginBottom="2%"
     >
      {data?.map((item)=>(
         <GridItem border="1px solid #dadcdf" key={item.id}>
@@ -30,6 +31,7 @@ export function LendingProduct ({data}) {
        
       </GridItem>
       ))}
+      
     </SimpleGrid>
 
     </div>

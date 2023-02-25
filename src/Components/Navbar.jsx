@@ -1,11 +1,3 @@
-// import { Input } from '@chakra-ui/react'
-
-// function Navbar(){
-//     return (
-// <Input placeholder='InstaShop.com' htmlSize={50} width='auto'  isInvalid  errorBorderColor='crimson' margin='auto' />
-//     )
-// }
-// export default Navbar
 import React from "react";
 import { Flex, Input, Button } from "@chakra-ui/react";
 import  {BiSearch}  from "react-icons/bi";

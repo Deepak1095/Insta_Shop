@@ -3,6 +3,8 @@ import { GridItem, Image, Box, Text, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "../Pagination";
+import Navbar from "../../Components/Navbar";
+import {Link as LinkRouter} from "react-router-dom"
 export default function MenShirt(){
     const [page, setPage] = useState(1);
   const [data,setData]=useState([])
@@ -18,6 +20,7 @@ axios
 
   return (
     <div>
+      <Navbar />
            <Pagination
        currentPage={page}
        total={4}
@@ -31,11 +34,11 @@ axios
   
      {data?.map((item)=>(
         <GridItem border="1px solid #dadcdf" key={item.id}>
-        {/* <RouterLink to={`${pathname}/${id}`}> */}
+          <LinkRouter  to={`/MenShirt/${item.id}`}>
           <Image src={item.img} alt={item.title} width="100%" />
           <Box padding="7px" minH="130px">
             <Text fontSize="lg" color="#c7202c">
-              Starting at {item.price}
+              Starting at ${item.price}
             </Text>
             <Text fontSize="sm" noOfLines={2}>
               {item.title}
@@ -47,7 +50,7 @@ axios
               Free Shipping with $125 orders
             </Text>
           </Box>
-        {/* </RouterLink> */}
+          </LinkRouter>
         <Button
           borderRadius="0"
           width="100%"

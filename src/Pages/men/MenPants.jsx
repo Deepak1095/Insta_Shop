@@ -2,6 +2,7 @@ import { SimpleGrid} from "@chakra-ui/react";
 import { GridItem, Image, Box, Text, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "../../Components/Navbar";
 export default function MenPants(){
   const [data,setData]=useState([])
   const getData=()=>{
@@ -16,6 +17,7 @@ axios
 
   return (
     <div>
+      <Navbar />
          <SimpleGrid
       columns={{ base: 1, sm: 1, md: 2, lg: 3, xl: 4 }}
       spacing={7}

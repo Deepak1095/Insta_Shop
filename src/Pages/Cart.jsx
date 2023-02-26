@@ -14,14 +14,18 @@ const Cart = () => {
    window.location.reload()
    }
    let Price=0
-   function price(data){
-       data.forEach(function(el){
-        let p=Number(el.quantity)*Number(el.Price)
-           Price=Price+p
-           console.log(Price)
-            return Price
-       })
-   }
+   const price=(data)=>{
+    let ans=0
+    data.forEach(function(el){
+     let p=Number(el.quantity)*Number(el.Price)
+        ans=ans+p
+        console.log(Price,el.quantity,p)
+         return Price
+    })
+    Price=ans
+}
+
+  
    
    
   return (
@@ -35,8 +39,7 @@ const Cart = () => {
      </Button>
      <Button
      colorScheme="green"
-      margin="0% 0% 0% 80%"
-      isDisabled
+      margin="1% 0% 0% 80%"
      >
      Total Item : {totalCart}
      </Button>
@@ -53,7 +56,12 @@ const Cart = () => {
          </div>
          })}
          </div>
-         <button style={{width:"70px",border:"1px solid green",margin:"2% 40%"}}><Link to="/payment">Payment</Link></button>
+         <Link to="/">
+         <Button  
+         colorScheme="green"
+      size="sm"
+      margin="0% 0% 0% 80%">Payment  ${Price}</Button>
+      </Link>
     </div>
   )
 }

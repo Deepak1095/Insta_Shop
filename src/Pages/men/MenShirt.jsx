@@ -5,9 +5,11 @@ import axios from "axios";
 import Pagination from "../Pagination";
 import Navbar from "../../Components/Navbar";
 import {Link as LinkRouter} from "react-router-dom"
+import { FilterData } from "../Filter";
 export default function MenShirt(){
     const [page, setPage] = useState(1);
   const [data,setData]=useState([])
+  const [toggle,setToggle]=useState(false)
   const getData=(page)=>{
 axios
   .get(`https://insta-shop.onrender.com/men_shirts?_limit=12&_page=${page}`)
@@ -18,6 +20,10 @@ axios
     getData([page])
   },[page])
 
+  useEffect(()=>{
+    
+  },[toggle])
+
   return (
     <div>
       <Navbar />
@@ -26,6 +32,7 @@ axios
        total={4}
        onChange={(val) => setPage(val)}
      />
+      <FilterData data={data} toggle={toggle} setToggle={setToggle}/>
          <SimpleGrid
       columns={{ base: 1, sm: 1, md: 2, lg: 3, xl: 4 }}
       spacing={7}

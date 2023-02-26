@@ -88,15 +88,16 @@ localStorage.setItem("cart_data", JSON.stringify(cartData));
        <option value="9">Quantity: 9</option>
        <option value="10">Quantity: 10</option>
      </Select>
+     <Link to="/cart">
      <Button
       colorScheme="green"
       size="sm"
       leftIcon={<BsCartPlusFill />}
-      width="45%"
-      onClick={addToCart} ><Link to="/cart">
+      width="100%"
+      onClick={addToCart} >
        Add to Cart
-       </Link>
      </Button>
+     </Link>
    </Flex>
  </Box>
      

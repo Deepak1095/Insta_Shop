@@ -13,6 +13,7 @@ import Cart from '../Pages/Cart'
 import WomenDress from '../Pages/women/WomenDress'
 import WomenShoes from '../Pages/women/WomenShoes'
 import PrivateRoutes from './PrivateRoute'
+import Jewelery from '../Pages/Jewelry'
 const AllRoutes = () => {
     return (
         
@@ -25,6 +26,7 @@ const AllRoutes = () => {
           <Route path="/MenShoes" element ={<MenShoes />} /> 
           <Route path="/WomenDress" element={ <WomenDress />}/>
           <Route path="/WomenShoes" element ={<WomenShoes />} /> 
+          <Route path="/jewelery" element ={<Jewelery />} /> 
           <Route path="/cart" element ={
           <Cart />
          } /> 
@@ -35,6 +37,7 @@ const AllRoutes = () => {
           <Route path="/MenShirt/:id" element={<SingleProduct />} />
         <Route path="/MenPants/:id" element={<SingleProduct />} />
         <Route path="/MenShoes/:id" element={<SingleProduct />} />
+        <Route path="/jewelery/:id" element={<SingleProduct />} />
         <Route path="/WomenDress/:id" element={<SingleProduct />} />
         <Route path="/WomenShoes/:id" element={<SingleProduct />} />
             </Routes>

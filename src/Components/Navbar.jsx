@@ -58,7 +58,7 @@ const Navbar = () => {
     <PopoverCloseButton />
     <LinkRouter to="/MenShirt"><Button width="90px">Shirts</Button></LinkRouter>
     <LinkRouter to="/MenPants"><Button width="90px">Pants</Button></LinkRouter>
-    <LinkRouter to="/MenShirt"><Button width="90px">Shoes</Button></LinkRouter>
+    <LinkRouter to="/MenShoes"><Button width="90px">Shoes</Button></LinkRouter>
   </PopoverContent>
 </Popover>
 <Popover>

@@ -34,7 +34,7 @@ axios
   
      {data?.map((item)=>(
         <GridItem border="1px solid #dadcdf" key={item.id}>
-          <LinkRouter  to={`/MenShirt/${item.id}`}>
+          <LinkRouter  to={`/MenShoes/${item.id}`}>
           <Image src={item.img} alt={item.title} width="100%" />
           <Box padding="7px" minH="130px">
             <Text fontSize="lg" color="#c7202c">

@@ -24,9 +24,9 @@ export default function Pagination ({ currentPage, total, onChange }) {
     </Button>
   );
   return (
-    <Box textAlign="center">
+    <Box textAlign="end">
       {prevBtn}
-      {currentPage}
+      {" 0"+currentPage}
       {nextBtn}
     </Box>
   );

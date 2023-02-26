@@ -3,9 +3,13 @@ import { GridItem, Image, Box, Text, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "../Pagination";
+import Navbar from "../../Components/Navbar";
+import {Link as LinkRouter} from "react-router-dom"
+import { FilterData } from "../Filter";
 export default function MenShirt(){
     const [page, setPage] = useState(1);
   const [data,setData]=useState([])
+  const [toggle,setToggle]=useState(false)
   const getData=(page)=>{
 axios
   .get(`https://insta-shop.onrender.com/men_shirts?_limit=12&_page=${page}`)
@@ -16,13 +20,19 @@ axios
     getData([page])
   },[page])
 
+  useEffect(()=>{
+    
+  },[toggle])
+
   return (
     <div>
+      <Navbar />
            <Pagination
        currentPage={page}
        total={4}
        onChange={(val) => setPage(val)}
      />
+      <FilterData data={data} toggle={toggle} setToggle={setToggle}/>
          <SimpleGrid
       columns={{ base: 1, sm: 1, md: 2, lg: 3, xl: 4 }}
       spacing={7}
@@ -31,11 +41,11 @@ axios
   
      {data?.map((item)=>(
         <GridItem border="1px solid #dadcdf" key={item.id}>
-        {/* <RouterLink to={`${pathname}/${id}`}> */}
+          <LinkRouter  to={`/MenShirt/${item.id}`}>
           <Image src={item.img} alt={item.title} width="100%" />
           <Box padding="7px" minH="130px">
             <Text fontSize="lg" color="#c7202c">
-              Starting at {item.price}
+              Starting at ${item.price}
             </Text>
             <Text fontSize="sm" noOfLines={2}>
               {item.title}
@@ -47,12 +57,10 @@ axios
               Free Shipping with $125 orders
             </Text>
           </Box>
-        {/* </RouterLink> */}
+          </LinkRouter>
         <Button
           borderRadius="0"
           width="100%"
-        //   onClick={handleAddToCart}
-        //   isLoading={loading}
         >
           Add to Cart
         </Button>

@@ -2,7 +2,11 @@ import { SimpleGrid} from "@chakra-ui/react";
 import { GridItem, Image, Box, Text, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "../../Components/Navbar";
+import Pagination from "../Pagination";
+import {Link as LinkRouter} from "react-router-dom"
 export default function MenPants(){
+  const [page, setPage] = useState(1);
   const [data,setData]=useState([])
   const getData=()=>{
 axios
@@ -16,6 +20,13 @@ axios
 
   return (
     <div>
+      <Navbar />
+      <Pagination 
+        currentPage={page}
+        total={4}
+        onChange={(val) => setPage(val)}
+      />
+
          <SimpleGrid
       columns={{ base: 1, sm: 1, md: 2, lg: 3, xl: 4 }}
       spacing={7}
@@ -23,22 +34,23 @@ axios
     >
      {data?.map((item)=>(
         <GridItem border="1px solid #dadcdf">
-        {/* <RouterLink to={`${pathname}/${id}`}> */}
-          <Image src={item.men_prod_img} alt={item.men_prod_title} width="100%" />
+        <LinkRouter  to={`/MenPants/${item.id}`}>
+          <Image src={item.img} alt={item.title} width="100%" />
           <Box padding="7px" minH="130px">
-            <Text fontSize="lg" color="#c7202c">
-              Starting at {item.men_prod_price}
+            <Text fontSize="sm" color="#c7202c">
+              Starting at {item.price}
             </Text>
             <Text fontSize="sm" noOfLines={2}>
-              {item.men_prod_title}
+              {item.title}
+            </Text>
+            <Text fontSize="sm">
+              {item.reward}
             </Text>
           </Box>
-        {/* </RouterLink> */}
+          </LinkRouter>
         <Button
           borderRadius="0"
           width="100%"
-        //   onClick={handleAddToCart}
-        //   isLoading={loading}
         >
           Add to Cart
         </Button>

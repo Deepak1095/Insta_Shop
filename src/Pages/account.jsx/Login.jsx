@@ -2,18 +2,13 @@ import React, { useState, useContext } from "react";
 import {Text,GridItem,FormControl,FormLabel,Input,VStack,Button,Link,useToast} from "@chakra-ui/react";
 import axios from "axios";
 import { AuthContext } from "../../Context/AuthContext";
-import { useNavigate } from "react-router-dom";
-
+import { Navigate, useNavigate } from "react-router-dom";
+import { Link as LinkRouter } from "react-router-dom";
 export const LoginUser = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
-  const { handleLogin, authState } = useContext(AuthContext);
-
+  const { handleLogin, handleLogout, authState } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  if (authState.isAuth) {
-    navigate(-1);
-  }
 
   const toast = useToast();
 
@@ -44,9 +39,10 @@ export const LoginUser = () => {
           title: data.message,
           description: "You are Successfully Logged in.",
           status: "success",
-          duration: 2000,
+          duration: 1000,
           isClosable: true,
         });
+          navigate("/");
         setLoading(false);
         loginWithToken(data.token);
       })
@@ -61,7 +57,16 @@ export const LoginUser = () => {
         setLoading(false);
       });
   };
-
+  console.log(authState)
+  const handlelogout=()=>{
+    handleLogout()
+    toast({
+      description: "You are Successfully logged out.",
+      status: "success",
+      duration: 500,
+      isClosable: true,
+    });
+  }
   return (
     <GridItem
       w="100%"
@@ -105,6 +110,10 @@ export const LoginUser = () => {
           Sign In
         </Button>
         <Link color="#0272a2">Forgot your password?</Link>
+        <Button onClick={handlelogout}>Logout</Button>
+        <LinkRouter to="/admin">
+        <Button>Admin</Button>
+        </LinkRouter>
       </VStack>
     </GridItem>
   );

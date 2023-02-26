@@ -479,7 +479,7 @@ console.log(data)
         <LendingProduct data={Jewelry} />
         <h1 style={{fontSize:"30px",marginLeft:"5%"}}>Heart Health Supplements</h1>
         <LendingProduct data={Health} />
-        {/* <Footer /> */}
+        <Footer />
     </div>
   )
 }

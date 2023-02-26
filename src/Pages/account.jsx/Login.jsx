@@ -3,7 +3,7 @@ import {Text,GridItem,FormControl,FormLabel,Input,VStack,Button,Link,useToast} f
 import axios from "axios";
 import { AuthContext } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
-
+import { Link as LinkRouter } from "react-router-dom";
 export const LoginUser = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
@@ -105,6 +105,9 @@ export const LoginUser = () => {
           Sign In
         </Button>
         <Link color="#0272a2">Forgot your password?</Link>
+        <LinkRouter to="/admin">
+        <Button>Admin</Button>
+        </LinkRouter>
       </VStack>
     </GridItem>
   );

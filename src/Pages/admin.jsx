@@ -11,6 +11,7 @@ import {
   ModalCloseButton,
   Box,Button,useDisclosure,SimpleGrid,Input
 } from '@chakra-ui/react'
+import Navbar from '../Components/Navbar'
 const Admin = () => {
     const [linkDetails,setLinkDetails]=useState("")
    const [product,setProduct]=useState("")
@@ -58,6 +59,7 @@ const viewData=(id)=>{
 function PostModal() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
+   
     <>
       <Button onClick={onOpen}  style={{width:"260px",height:"50px",fontSize:"20px"}}>Add New Product</Button>
       <Modal isOpen={isOpen} onClose={onClose} >
@@ -176,17 +178,10 @@ function ViewModal() {
       </Modal>
     </>
   )
-}
-    
-    
-    
-   
+} 
   return (
    <div>
-    
-    {/* <Navbar style={{color:"white"}} />
- 
-     */}
+      <Navbar />
     <div style={{margin:"11% 20%" }}>
   <PostModal />
   <br />

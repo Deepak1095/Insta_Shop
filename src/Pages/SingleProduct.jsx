@@ -31,7 +31,8 @@ function SingleUserPage() {
         "id":Math.random(),
         "Price":data.price,
         "img":data.img,
-        "about":data.title
+        "title":data.title,
+        "quantity":quantity
        }
        cartData.push(obj)
 localStorage.setItem("cart_data", JSON.stringify(cartData));

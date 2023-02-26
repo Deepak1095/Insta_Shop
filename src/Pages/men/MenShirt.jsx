@@ -54,8 +54,6 @@ axios
         <Button
           borderRadius="0"
           width="100%"
-        //   onClick={handleAddToCart}
-        //   isLoading={loading}
         >
           Add to Cart
         </Button>
